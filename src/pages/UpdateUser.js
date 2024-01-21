@@ -10,10 +10,6 @@ import {
 } from 'react-native';
 import tw from "twrnc";
 
-
-import Mytext from './components/Mytext';
-import Mytextinput from './components/Mytextinput';
-import Mybutton from './components/Mybutton';
 import { DatabaseConnection } from '../database/database-connection';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 

@@ -11,7 +11,8 @@ const MyImageButton = (props) => {
       onPress={props.customClick}>
 
       <Icon style={styles.icon}
-        name={props.btnIcon} size={30} color='white' />
+        name={props.btnIcon} size={30} color='white' 
+      />
 
       <Text style={styles.text}>
         {props.title}
@@ -24,11 +25,11 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     color: '#ffffff',
-    padding: 10,
+    padding: 12,
     marginTop: 16,
     marginLeft: 35,
     marginRight: 35,
-    borderRadius: 5,
+    borderRadius: 8,
   },
   text: {
     color: '#ffffff',

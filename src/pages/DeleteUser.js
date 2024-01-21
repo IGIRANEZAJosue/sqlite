@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { View, Alert, SafeAreaView, TextInput, TouchableOpacity, Text } from 'react-native';
-import Mytextinput from './components/Mytextinput';
-import Mybutton from './components/Mybutton';
 import { DatabaseConnection } from '../database/database-connection';
 import tw from "twrnc"
 
