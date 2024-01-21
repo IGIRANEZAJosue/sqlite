@@ -5,10 +5,15 @@ import {
   KeyboardAvoidingView,
   Alert,
   SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+  Text,
 } from 'react-native';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 import { DatabaseConnection } from '../database/database-connection';
+
+import tw from "twrnc"
 
 const db = DatabaseConnection.getConnection();
 
@@ -58,45 +63,51 @@ const RegisterUser = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={{ flex: 1 }}>
-          <ScrollView keyboardShouldPersistTaps="handled">
-            <KeyboardAvoidingView
-              behavior="padding"
-              style={{ flex: 1, justifyContent: 'space-between' }}>
-              <Mytextinput
-                placeholder="Enter Name"
-                onChangeText={
-                  (userName) => setUserName(userName)
-                }
-                style={{ padding: 10 }}
-              />
-              <Mytextinput
-                placeholder="Enter with Phone"
-                onChangeText={
-                  (userContact) => setUserContact(userContact)
-                }
-                maxLength={10}
-                keyboardType="numeric"
-                style={{ padding: 10 }}
-              />
-              <Mytextinput
-                placeholder="Enter the Address"
-                onChangeText={
-                  (userAddress) => setUserAddress(userAddress)
-                }
-                maxLength={225}
-                numberOfLines={5}
-                multiline={true}
-                style={{ textAlignVertical: 'top', padding: 10 }}
-              />
-              <Mybutton title="save" customClick={register_user} />
-            </KeyboardAvoidingView>
-          </ScrollView>
-        </View>
-      </View>
-    </SafeAreaView>
+		<SafeAreaView style={{ flex: 1 }}>
+			<View style={{ flex: 1, backgroundColor: 'white' }}>
+			<View style={{ flex: 1 }}>
+				<ScrollView keyboardShouldPersistTaps="handled">
+					<KeyboardAvoidingView
+					behavior="padding"
+					style={{ flex: 1, justifyContent: 'space-between' }}>
+					<TextInput
+						placeholder="Enter Name"
+						onChangeText={
+							(userName) => setUserName(userName)
+						}
+            style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-md mt-4 mb-4`}
+					/>
+
+					<TextInput
+						placeholder="Enter with Phone"
+						onChangeText={
+							(userContact) => setUserContact(userContact)
+						}
+						maxLength={10}
+						keyboardType="numeric"
+            style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-md mb-4`}
+					/>
+					<TextInput
+						placeholder="Enter the Address"
+						onChangeText={
+							(userAddress) => setUserAddress(userAddress)
+						}
+						maxLength={225}
+						numberOfLines={5}
+						multiline={true}
+            style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-lg mb-4`}
+					/>
+
+					<TouchableOpacity onPress={register_user} style={tw`bg-[#6c63ff] mx-[35px] items-center p-[10px] rounded-lg my-5 `}>
+            <Text style={tw`text-white`}>Register User</Text>
+          </TouchableOpacity>
+
+
+					</KeyboardAvoidingView>
+				</ScrollView>
+			</View>
+			</View>
+		</SafeAreaView>
   );
 };
 

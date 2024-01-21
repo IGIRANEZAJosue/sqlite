@@ -6,16 +6,21 @@ import {
   Alert,
   SafeAreaView,
   Text,
+  TextInput,
 } from 'react-native';
+import tw from "twrnc";
+
 
 import Mytext from './components/Mytext';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 import { DatabaseConnection } from '../database/database-connection';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const db = DatabaseConnection.getConnection();
 
 const UpdateUser = ({ navigation }) => {
+
   let [inputUserId, setInputUserId] = useState('');
   let [userName, setUserName] = useState('');
   let [userContact, setUserContact] = useState('');
@@ -101,38 +106,40 @@ const UpdateUser = ({ navigation }) => {
           <ScrollView keyboardShouldPersistTaps="handled">
             <KeyboardAvoidingView
               behavior="padding"
-              style={{ flex: 1, justifyContent: 'space-between' }}>
-              <Mytext text="Filtro de Usuário" />
-              <Mytextinput
+              style={tw`flex-1 justify-between`}>
+              <Text style={tw`mx-[35px] mt-4 text-lg mb-2`}>User Filter</Text>
+              <TextInput
                 placeholder="Enter User Code"
-                style={{ padding: 10 }}
                 onChangeText={
                   (inputUserId) => setInputUserId(inputUserId)
                 }
+                style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-lg`}
               />
-              <Mybutton
-                title="Search User"
-                customClick={searchUser}
-              />
-              <Mytextinput
+
+                <TouchableOpacity onPress={searchUser} style={tw`bg-[#6c63ff] mx-[35px] items-center p-[10px] rounded-lg my-5 `}>
+                  <Text style={tw`text-white`}>Search User</Text>
+                </TouchableOpacity>
+
+              
+              <TextInput
                 placeholder="Enter Name"
                 value={userName}
-                style={{ padding: 10 }}
+                style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-lg mb-4`}
                 onChangeText={
                   (userName) => setUserName(userName)
                 }
               />
-              <Mytextinput
-                placeholder="Enter with Phone"
+              <TextInput
+                placeholder="Enter Phone"
                 value={'' + userContact}
                 onChangeText={
                   (userContact) => setUserContact(userContact)
                 }
                 maxLength={10}
-                style={{ padding: 10 }}
+                style={tw`p-[10px] border-[1px] border-[#6c63ff] mx-[35px] rounded-lg mb-4`}
                 keyboardType="numeric"
               />
-              <Mytextinput
+              <TextInput
                 value={userAddress}
                 placeholder="Enter Address"
                 onChangeText={
@@ -141,12 +148,12 @@ const UpdateUser = ({ navigation }) => {
                 maxLength={225}
                 numberOfLines={5}
                 multiline={true}
-                style={{ textAlignVertical: 'top', padding: 10 }}
+                style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-lg mb-4`}
               />
-              <Mybutton
-                title="Update User"
-                customClick={updateUser}
-              />
+              <TouchableOpacity onPress={updateUser} style={tw`bg-[#6c63ff] mx-[35px] items-center p-[10px] rounded-lg my-5 `}>
+                <Text style={tw`text-white`}>Update User</Text>
+              </TouchableOpacity>
+
             </KeyboardAvoidingView>
           </ScrollView>
         </View>

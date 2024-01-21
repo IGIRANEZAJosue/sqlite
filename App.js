@@ -11,12 +11,14 @@ import UpdateUser from './src/pages/UpdateUser';
 import ViewUser from './src/pages/ViewUser';
 import ViewAllUser from './src/pages/ViewAllUser';
 import DeleteUser from './src/pages/DeleteUser';
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
+      <StatusBar style="light" />
       <Stack.Navigator initialRouteName="HomeScreen">
         <Stack.Screen
           name="HomeScreen"
@@ -24,7 +26,7 @@ const App = () => {
           options={{
             title: 'Home',
             headerStyle: {
-              backgroundColor: '#00AD98',
+              backgroundColor: '#6C63FF',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -38,7 +40,7 @@ const App = () => {
           options={{
             title: 'Register user',
             headerStyle: {
-              backgroundColor: '#2992C4',
+              backgroundColor: '#6C63FF',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -52,7 +54,7 @@ const App = () => {
           options={{
             title: 'Update user',
             headerStyle: {
-              backgroundColor: '#A45BB9',
+              backgroundColor: '#6c63ff',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -66,7 +68,7 @@ const App = () => {
           options={{
             title: 'View user',
             headerStyle: {
-              backgroundColor: '#F9AD29',
+              backgroundColor: '#6C63FF',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -80,7 +82,7 @@ const App = () => {
           options={{
             title: 'View all users',
             headerStyle: {
-              backgroundColor: '#384F62',
+              backgroundColor: '#6C63FF',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -94,7 +96,7 @@ const App = () => {
           options={{
             title: 'Delete user',
             headerStyle: {
-              backgroundColor: '#D1503A',
+              backgroundColor: '#6C63FF',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
