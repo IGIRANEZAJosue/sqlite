@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, Text, View, SafeAreaView, StyleSheet } from 'react-native';
 import { DatabaseConnection } from '../database/database-connection';
+import tw from "twrnc"
 
 const db = DatabaseConnection.getConnection();
 
@@ -26,18 +27,18 @@ const ViewAllUser = () => {
     return (
       <View
         key={item.user_id}
-        style={{ backgroundColor: '#EEE', marginTop: 20, padding: 30, borderRadius: 10 }}>
-        <Text style={styles.textheader}>Code</Text>
-        <Text style={styles.textbottom}>{item.user_id}</Text>
+        style={tw`bg-[#EEE] mt-5 p-[30px] rounded-xl`}>
+        <Text style={tw`font-bold text-[#111] text-[12px] `}>ID</Text>
+        <Text style={tw`text-[#111] text-[18px]`}>{item.user_id}</Text>
 
-        <Text style={styles.textheader}>Name</Text>
-        <Text style={styles.textbottom}>{item.user_name}</Text>
+        <Text style={tw`font-bold text-[#111] text-[12px] `}>Name</Text>
+        <Text style={tw`text-[#111] text-[18px]`}>{item.user_name}</Text>
 
-        <Text style={styles.textheader}>Contact</Text>
-        <Text style={styles.textbottom}>{item.user_contact}</Text>
+        <Text style={tw`font-bold text-[#111] text-[12px] `}>Contact</Text>
+        <Text style={tw`text-[#111] text-[18px]`}>{item.user_contact}</Text>
 
-        <Text style={styles.textheader}>Address</Text>
-        <Text style={styles.textbottom}>{item.user_address}</Text>
+        <Text style={tw`font-bold text-[#111] text-[12px] `} >Address</Text>
+        <Text style={tw`text-[#111] text-[18px]`}>{item.user_address}</Text>
 
 
       </View>
@@ -60,18 +61,5 @@ const ViewAllUser = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  textheader: {
-    color: '#111',
-    fontSize: 12,
-    fontWeight: '700',
-
-  },
-  textbottom: {
-    color: '#111',
-    fontSize: 18,
-  },
-});
 
 export default ViewAllUser;

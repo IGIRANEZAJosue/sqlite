@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Alert, SafeAreaView } from 'react-native';
+import { View, Alert, SafeAreaView, TextInput, TouchableOpacity, Text } from 'react-native';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 import { DatabaseConnection } from '../database/database-connection';
+import tw from "twrnc"
 
 const db = DatabaseConnection.getConnection();
 
@@ -40,14 +41,16 @@ const DeleteUser = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-          <Mytextinput
-            placeholder="Enter User Code"
+          <TextInput
+            placeholder="Enter User ID"
             onChangeText={
               (inputUserId) => setInputUserId(inputUserId)
             }
-            style={{ padding: 10 }}
+            style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-lg mt-6 mb-4`}
           />
-          <Mybutton title="Delete User" customClick={deleteUser} />
+          <TouchableOpacity onPress={deleteUser} style={tw`bg-[#6c63ff] mx-[35px] items-center p-[10px] rounded-lg my-5 `}>
+            <Text style={tw`text-white`}>Delete User</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

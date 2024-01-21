@@ -109,7 +109,7 @@ const UpdateUser = ({ navigation }) => {
               style={tw`flex-1 justify-between`}>
               <Text style={tw`mx-[35px] mt-4 text-lg mb-2`}>User Filter</Text>
               <TextInput
-                placeholder="Enter User Code"
+                placeholder="Enter User ID"
                 onChangeText={
                   (inputUserId) => setInputUserId(inputUserId)
                 }

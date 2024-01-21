@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import Mytext from './components/Mytext';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 import { DatabaseConnection } from '../database/database-connection';
+import tw from "twrnc"
 
 const db = DatabaseConnection.getConnection();
 
@@ -35,22 +36,23 @@ const ViewUser = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-          <Mytext text="User Filter" />
-          <Mytextinput
+        
+        <Text style={tw`mx-[35px] mt-4 text-lg mb-2`}>User Filter</Text>
+          
+          <TextInput
             placeholder="Enter User Code"
             onChangeText={
               (inputUserId) => setInputUserId(inputUserId)
             }
-            style={{ padding: 10 }}
+            style={tw`p-[10px] border-[1.5px] border-[#6c63ff] mx-[35px] rounded-lg mb-4`}
           />
-          <Mybutton title="Search User" customClick={searchUser} />
+          <TouchableOpacity onPress={searchUser} style={tw`bg-[#6c63ff] mx-[35px] items-center p-[10px] rounded-lg my-5 `}>
+            <Text style={tw`text-white`}>View User</Text>
+          </TouchableOpacity>
+
           <View
-            style={{
-              marginLeft: 35,
-              marginRight: 35,
-              marginTop: 10
-            }}>
-            <Text>Code : {userData.user_id}</Text>
+            style={tw` mx-[35px] mt-[10px]`}>
+            <Text>ID : {userData.user_id}</Text>
             <Text>Name : {userData.user_name}</Text>
             <Text>Telephone : {userData.user_contact}</Text>
             <Text>Address : {userData.user_address}</Text>
